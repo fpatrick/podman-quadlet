@@ -1,7 +1,7 @@
 
 # Podman with Quadlet - Getting Started Guide 🐋
 
-This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. You'll learn how to manage containers with Quadlet using `.container` files. 🚀
+This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` . 🚀
 
 ## What is Quadlet?
 
