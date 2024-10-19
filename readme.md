@@ -134,7 +134,7 @@ Label                   # (Optional) Custom label for the network
 Define environment variables:
 
 ```
-MY_VARIABLE=my_value  # Add your custom variables here
+ENVIROMENT_FIELD=your_secret_value # Add your custom variables here. Such as PGID=200
 ```
 
 ---
