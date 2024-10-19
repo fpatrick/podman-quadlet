@@ -1,0 +1,26 @@
+[Unit]
+Description=Hoarder requirement
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=hoarder-meilisearch
+
+Image=docker.io/getmeili/meilisearch:v1.6
+
+EnvironmentFile=hoarder.env
+#Environment=MEILI_MASTER_KEY=SECRET
+Environment=MEILI_NO_ANALYTICS=true
+
+Volume=/var/opt/containers/hoarder/meilisearch:/meili_data:Z
+
+Network=hoarder.network
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

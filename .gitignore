@@ -1,0 +1,5 @@
+**/*.env
+**/*.network
+kopia/*
+sabnzbd/*
+nzbget/*

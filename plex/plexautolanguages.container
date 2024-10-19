@@ -1,0 +1,30 @@
+[Unit]
+Description=Plex auto languages
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName= plexautolanguages
+
+Image=docker.io/remirigal/plex-auto-languages:latest
+
+EnvironmentFile=plex.env
+#Environment=PLEX_TOKEN=SECRET
+Environment=PLEX_URL=http://10.0.0.3:32400
+
+Volume=/var/opt/containers/plexautolanguages:/config:Z
+
+Network=arr.network
+
+#HealthcheckCmd=["CMD", "pg_isready", "-U", "miniflux"]
+#HealthcheckInterval=10s
+#HealthcheckStartPeriod=30s
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

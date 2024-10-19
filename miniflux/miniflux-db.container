@@ -1,0 +1,31 @@
+[Unit]
+Description=Miniflux database
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName= miniflux-db
+
+Image=docker.io/postgres:15
+
+EnvironmentFile=miniflux.env
+#Environment=POSTGRES_USER=SECRET
+#Environment=POSTGRES_PASSWORD=SECRET
+#Environment=POSTGRES_DB=SECRET
+
+Volume=/var/opt/containers/miniflux-db:/var/lib/postgresql/data:Z
+
+Network=rss.network
+
+#HealthcheckCmd=["CMD", "pg_isready", "-U", "miniflux"]
+#HealthcheckInterval=10s
+#HealthcheckStartPeriod=30s
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

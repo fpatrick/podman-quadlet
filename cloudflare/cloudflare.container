@@ -1,0 +1,25 @@
+[Unit]
+Description=Cloudflare
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=cloudflare
+
+Image=docker.io/cloudflare/cloudflared:latest
+
+EnvironmentFile=cloudflare.env
+#Environment=TUNNEL_TOKEN=SECRET
+
+Network=cloudflare.network
+
+Exec=tunnel --no-autoupdate run
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

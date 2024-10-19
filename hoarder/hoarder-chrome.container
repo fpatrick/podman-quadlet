@@ -1,0 +1,23 @@
+[Unit]
+Description=Hoarder requirement
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=hoarder-chrome
+
+Image=gcr.io/zenika-hub/alpine-chrome:123
+
+Network=hoarder.network
+
+Exec=--no-sandbox --disable-gpu --disable-dev-shm-usage --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 --hide-scrollbars
+
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

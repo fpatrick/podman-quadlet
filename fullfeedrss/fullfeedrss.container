@@ -1,0 +1,33 @@
+[Unit]
+Description=Convert text to RSS
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=fullfeedrss
+
+Image=docker.io/heussd/fivefilters-full-text-rss:latest
+
+EnvironmentFile=fullfeedrss.env
+#Environment=FTR_ADMIN_PASSWORD=SECRET
+
+Volume=/var/opt/containers/fullfeedrss:/var/www/html/cache/rss:Z
+
+Network=rss.network
+
+PublishPort=8991:80
+
+Label=homepage.group=RSS/Feed
+Label=homepage.name=FullFeed-RSS
+Label=homepage.icon=mdi-alpha-f-box-outline
+Label=homepage.href=http://10.0.0.3:8991
+Label=homepage.description=Convert text to RSS
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

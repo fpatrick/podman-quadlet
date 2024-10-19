@@ -1,0 +1,23 @@
+[Unit]
+Description=Homepage Dashboard
+Requires=podman.socket
+After=podman.socket
+
+[Container]
+ContainerName=homepage
+Image=ghcr.io/gethomepage/homepage:latest
+PublishPort=3000:3000
+Volume=/var/opt/containers/homepage:/app/config:Z
+Volume=/var/opt/containers/homepage/images:/app/public/images:Z
+Volume=/%t/podman/podman.sock:/run/podman/podman.sock:ro,z
+
+Network=arr.network
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

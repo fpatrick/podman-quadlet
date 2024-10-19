@@ -1,0 +1,35 @@
+[Unit]
+Description=Automate with workflows
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=n8n
+
+Image=docker.n8n.io/n8nio/n8n
+
+Environment=N8N_SECURE_COOKIE=false #disabled for access localhost, not recommended
+Environment=EXECUTIONS_DATA_PRUNE=true # Activate automatic data pruning
+Environment=EXECUTIONS_DATA_MAX_AGE=168 # Number of hours after execution that n8n deletes data
+Environment=TZ=Europe/Dublin
+
+Volume=/var/opt/containers/n8n:/home/node/.n8n:Z
+
+Network=rss.network
+
+PublishPort=5678:5678
+
+Label=homepage.group=Automation
+Label=homepage.name=n8n
+Label=homepage.icon=n8n.png
+Label=homepage.href=http://10.0.0.3:5678
+Label=homepage.description=Automate with workflows
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

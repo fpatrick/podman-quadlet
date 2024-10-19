@@ -1,0 +1,34 @@
+[Unit]
+Description=Minimalist RSS reader
+Wants=miniflux-db.service 
+After=miniflux-db.service 
+
+[Container]
+ContainerName=miniflux
+
+Image=docker.io/miniflux/miniflux:latest
+
+EnvironmentFile=miniflux.env
+#Environment=DATABASE_URL=SECRET
+#Environment=ADMIN_USERNAME=SECRET
+#Environment=ADMIN_PASSWORD=SECRET
+Environment=RUN_MIGRATIONS=1
+Environment=CREATE_ADMIN=1
+
+Network=rss.network
+
+PublishPort=8131:8080
+
+Label=homepage.group=RSS/Feed
+Label=homepage.name=Miniflux
+Label=homepage.icon=miniflux.png
+Label=homepage.href=http://10.0.0.3:8131
+Label=homepage.description=Minimalist RSS reader
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

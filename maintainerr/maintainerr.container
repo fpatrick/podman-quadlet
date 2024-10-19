@@ -1,0 +1,30 @@
+[Unit]
+Description=Auto delete watched media
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=maintainerr
+
+Image=ghcr.io/jorenn92/maintainerr:latest
+
+Volume=/var/opt/containers/maintainerr:/opt/data:Z
+
+Network=arr.network
+
+PublishPort=6246:6246
+
+Label=homepage.group=Automation
+Label=homepage.name=Maintainerr
+Label=homepage.icon=mdi-size-m 
+Label=homepage.href=http://10.0.0.3:6246
+Label=homepage.description=Auto delete watched media
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+

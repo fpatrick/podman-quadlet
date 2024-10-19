@@ -1,0 +1,34 @@
+[Unit]
+Description=Automate TV shows
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=sonarr
+
+Image=ghcr.io/hotio/sonarr
+
+Environment=PUID=500
+Environment=PGID=500
+
+Volume=/var/opt/containers/sonarr:/config:Z
+Volume=/var/mnt/media:/data:z
+
+Network=arr.network
+
+PublishPort=8989:8989
+
+Label=homepage.group=Media
+Label=homepage.name=Sonarr
+Label=homepage.icon=sonarr.png
+Label=homepage.href=http://10.0.0.3:8989
+Label=homepage.description=Automate TV shows
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+
