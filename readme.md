@@ -1,15 +1,15 @@
 
 # Podman with Quadlet - Getting Started Guide 🐋
 
-This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. You'll learn how to manage containers with Quadlet using `.container` files. Let's dive in! 🚀
+This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. You'll learn how to manage containers with Quadlet using `.container` files. 🚀
 
 ## What is Quadlet?
 
-Quadlet is a way to run and manage containers in Podman using systemd services. You write `.container` files, and systemd takes care of running and managing the container. It's a bit different from Docker, but we'll make it easy!
+Quadlet is a way to run and manage containers in Podman using systemd services. You write `.container` files, and systemd takes care of running and managing the container.
 
 ## Rootless Setup
 
-Rootless means you don't need admin (root) permissions to run containers.
+Rootless means you don't need admin (root) permissions to run containers. If something malicious break out of the container, it won't do so much damage.
 
 ### Step-by-Step Guide
 
