@@ -3,7 +3,7 @@
 
 This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` . 🚀
 
-** Did you know? You can use Cockpit or Portainer with podman **
+**Did you know? You can use Cockpit or Portainer with podman**
 
 ## What is Quadlet?
 
