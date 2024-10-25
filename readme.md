@@ -86,6 +86,8 @@ To automatically update your containers:
 
 ## Example Templates
 
+#### In production use # Comments on top of the line and not in front like the examples below!
+
 ### .container file template
 
 ```
