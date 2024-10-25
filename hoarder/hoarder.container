@@ -7,7 +7,7 @@ After=local-fs.target
 [Container]
 ContainerName=hoarder
 
-Image=ghcr.io/hoarder-app/hoarder-web:0.18.0
+Image=ghcr.io/hoarder-app/hoarder:0.18.0
 
 EnvironmentFile=hoarder.env
 #Environment=NEXTAUTH_SECRET=SECRET
@@ -18,7 +18,7 @@ Environment=DATA_DIR=/data
 Environment=NEXTAUTH_URL=http://10.0.0.3:3095
 #Environment=OPENAI_API_KEY=
 
-Volume=/var/opt/containers/hoarder/data:/data:Z
+Volume=/var/opt/containers/hoarder:/data:Z
 
 Network=hoarder.network
 
