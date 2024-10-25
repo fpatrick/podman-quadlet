@@ -1,6 +1,6 @@
+Check out my blog for guides on podman, fedora core os, SELinux in containers and more: https://blog.nerdon.eu/tag/containers-virtualization/
 
 # Podman with Quadlet - Getting Started Guide 🐋
-Check out my blog for guides on podman, fedora core os, SELinux in containers and more: https://blog.nerdon.eu/tag/containers-virtualization/
 
 This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` . 🚀
 
