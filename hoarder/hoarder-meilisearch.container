@@ -13,7 +13,7 @@ EnvironmentFile=hoarder.env
 #Environment=MEILI_MASTER_KEY=SECRET
 Environment=MEILI_NO_ANALYTICS=true
 
-Volume=/var/opt/containers/hoarder/meilisearch:/meili_data:Z
+Volume=/var/opt/containers/hoarder-meilisearch:/meili_data:Z
 
 Network=hoarder.network
 
