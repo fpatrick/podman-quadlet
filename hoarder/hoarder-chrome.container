@@ -7,7 +7,7 @@ After=local-fs.target
 [Container]
 ContainerName=hoarder-chrome
 
-Image=gcr.io/zenika-hub/alpine-chrome:123
+Image=ghcr.io/zenika-hub/alpine-chrome:123
 
 Network=hoarder.network
 
