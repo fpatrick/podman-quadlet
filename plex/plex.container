@@ -17,9 +17,14 @@ Environment=ADVERTISE_IP=http://10.0.0.3:32400/
 Environment=ALLOWED_NETWORKS=10.0.0.0/24,172.0.0.0/24
 
 Volume=/var/opt/containers/plex:/config:Z
-Volume=/var/mnt/media:/media:z
-Volume=/var/mnt/data:/ssd:z
+Volume=/var/mnt/data/movies:/movies:z
+Volume=/var/mnt/data/kidsmovies:/kid-movies:z
+Volume=/var/mnt/media/tvshows:/tvshows:z
+Volume=/var/mnt/media/kidstv:/kidstv:z
+Volume=/var/mnt/media/fanedits:/fan-edit-movies:z
+Volume=/var/mnt/media/faneditshows:/fan-edit-tv:z
 Volume=/var/mnt/media/transcode:/transcode:z
+Volume=/var/mnt/media/music:/music:z
 
 Network=arr.network
 
@@ -40,7 +45,7 @@ Label=homepage.group=Media
 Label=homepage.name=Plex
 Label=homepage.icon=plex.png
 Label=homepage.href=http://10.0.0.3:32400/web/
-Label=homepage.description=Stream Media
+Label=homepage.description="Stream Media"
 
 [Service]
 Restart=on-failure

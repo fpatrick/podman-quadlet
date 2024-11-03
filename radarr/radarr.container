@@ -13,7 +13,10 @@ Environment=PUID=500
 Environment=PGID=500
 
 Volume=/var/opt/containers/radarr:/config:Z
-Volume=/var/mnt/data:/data:z
+Volume=/var/mnt/data/usenet:/data/usenet:z
+Volume=/var/mnt/data/movies:/data/movies:z
+Volume=/var/mnt/data/kidsmovies:/data/kidsmovies:z
+
 
 Network=arr.network
 
