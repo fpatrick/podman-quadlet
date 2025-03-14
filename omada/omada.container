@@ -7,7 +7,9 @@ After=local-fs.target
 [Container]
 ContainerName=omada
 
-Image=docker.io/mbentley/omada-controller:latest
+Image=docker.io/mbentley/omada-controller:5.15
+
+AutoUpdate=registry
 
 Environment=MANAGE_HTTP_PORT=8088
 Environment=MANAGE_HTTPS_PORT=8043
