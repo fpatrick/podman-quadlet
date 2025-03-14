@@ -73,6 +73,7 @@ To automatically update your containers:
    ```
    systemctl --user enable podman-auto-update
    ```
+   That will make podman periodically check for new images. If you want to manually check for updates run ``` podman auto-update ```
 
 ### Manual Updates 🔧
 
@@ -87,40 +88,62 @@ To automatically update your containers:
 
 ## Example Templates
 
-#### In production use # Comments on top of the line and not in front like the examples below!
+#### In production use # Comments on top of the line (like below) and not in front!
 
 ### .container file template
 
 ```
 [Unit]
-Description=  # (Optional) A brief description of the service
-Wants=        # (Optional) Services you want to run with this one
-After=        # (Optional) Services that need to start before this one
+# (Optional) A brief description of the service
+Description=
+# (Optional) Services you want to run with this one
+Wants=
+# (Optional) Services that need to start before this one
+After=
 
 [Container]
-ContainerName=  # (Mandatory) The container's name
-Image=          # (Mandatory) The container image to use (e.g., docker.io/library/alpine)
-EnvironmentFile= # (Optional) Path to an .env file
-Environment=    # (Optional) Key=value pairs for environment variables
-Volume=         # (Optional) Persistent storage paths (host:container)
-Network=        # (Optional) Custom network for the container
-PublishPort=    # (Optional) Ports to expose (host:container)
-Exec=           # (Optional) Custom command to run in the container
-PodmanArgs=     # (Optional) Additional Podman arguments
-AddCapability=  # (Optional) Extra capabilities to add to the container
-AddDevice=      # (Optional) Add host devices to the container
-SecurityLabelDisable= # (Optional) Disable SELinux labels
-User=           # (Optional) Run as a specific user inside the container
-Label=          # (Optional) Add metadata labels to the container
-UIDMap=         # (Optional) User ID mapping. Example: 0:10000:10 (Inside:Outside:Range)
-GIDMap=         # (Optional) Group ID mapping Example: 0:10000:10 (Inside:Outside:Range)
+# (Mandatory) The container's name
+ContainerName=
+# (Mandatory) The container image to use (e.g., docker.io/library/alpine)
+Image=
+# (Optional) Path to an .env file
+EnvironmentFile=
+# (Optional) Key=value pairs for environment variables
+Environment=
+# (Optional) Persistent storage paths (host:container)
+Volume=
+# (Optional) Custom network for the container
+Network=
+# (Optional) Ports to expose (host:container)
+PublishPort=
+# (Optional) Custom command to run in the container
+Exec=
+# (Optional) Additional Podman arguments
+PodmanArgs=
+# (Optional) Extra capabilities to add to the container
+AddCapability=
+# (Optional) Add host devices to the container
+AddDevice=
+# (Optional) Disable SELinux labels
+SecurityLabelDisable=
+# (Optional) Run as a specific user inside the container
+User=
+# (Optional) Add metadata labels to the container
+Label=
+# (Optional) User ID mapping. Example: 0:10000:10 (Inside:Outside:Range)
+UIDMap=
+# (Optional) Group ID mapping Example: 0:10000:10 (Inside:Outside:Range)
+GIDMap=
 
 [Service]
-Restart=        # (Optional) Set to 'always' or 'on-failure' to restart on failure
-TimeoutStartSec= # (Optional) Time to wait before considering a failure
+# (Optional) Set to 'always' or 'on-failure' to restart on failure
+Restart=
+# (Optional) Time to wait before considering a failure
+TimeoutStartSec=
 
 [Install]
-WantedBy=       # (Optional) Target to start with (default: multi-user.target). For graphical user interface systems default.target
+# (Optional) Target to start with (default: multi-user.target). For graphical user interface systems default.target
+WantedBy=
 ```
 
 ### .network file template
@@ -129,9 +152,12 @@ For setting up custom container networks:
 
 ```
 [Network]
-Subnet=192.168.99.0/24  # (Mandatory) Subnet for the network
-Gateway=192.168.99.1    # (Mandatory) Gateway IP address
-Label                   # (Optional) Custom label for the network
+# (Mandatory) Subnet for the network
+Subnet=192.168.99.0/24  
+# (Mandatory) Gateway IP address
+Gateway=192.168.99.1    
+# (Optional) Custom label for the network
+Label=              
 ```
 
 ### .env file template
