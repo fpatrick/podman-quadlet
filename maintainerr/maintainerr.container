@@ -9,6 +9,8 @@ ContainerName=maintainerr
 
 Image=ghcr.io/jorenn92/maintainerr:latest
 
+AutoUpdate=registry
+
 Volume=/var/opt/containers/maintainerr:/opt/data:Z
 
 Network=arr.network

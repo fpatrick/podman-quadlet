@@ -9,6 +9,8 @@ ContainerName=plex
 
 Image=docker.io/plexinc/pms-docker:plexpass
 
+AutoUpdate=registry
+
 EnvironmentFile=plex.env
 #Environment=PLEX_CLAIM=SECRET
 Environment=PLEX_UID=500

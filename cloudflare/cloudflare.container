@@ -9,6 +9,8 @@ ContainerName=cloudflare
 
 Image=docker.io/cloudflare/cloudflared:latest
 
+AutoUpdate=registry
+
 EnvironmentFile=cloudflare.env
 #Environment=TUNNEL_TOKEN=SECRET
 

@@ -9,6 +9,8 @@ ContainerName=wireguard
 
 Image=lscr.io/linuxserver/wireguard
 
+AutoUpdate=registry
+
 Environment=SERVERPORT=51820
 Environment=PEERS=2
 Environment=PEERDNS=auto

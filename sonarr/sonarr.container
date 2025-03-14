@@ -9,6 +9,8 @@ ContainerName=sonarr
 
 Image=ghcr.io/hotio/sonarr
 
+AutoUpdate=registry
+
 Environment=PUID=500
 Environment=PGID=500
 

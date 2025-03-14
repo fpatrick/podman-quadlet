@@ -9,6 +9,8 @@ ContainerName=radarr
 
 Image=ghcr.io/hotio/radarr
 
+AutoUpdate=registry
+
 Environment=PUID=500
 Environment=PGID=500
 

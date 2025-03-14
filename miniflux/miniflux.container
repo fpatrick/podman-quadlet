@@ -8,6 +8,8 @@ ContainerName=miniflux
 
 Image=docker.io/miniflux/miniflux:latest
 
+AutoUpdate=registry
+
 EnvironmentFile=miniflux.env
 #Environment=DATABASE_URL=SECRET
 #Environment=ADMIN_USERNAME=SECRET

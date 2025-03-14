@@ -9,6 +9,8 @@ ContainerName=syncthing
 
 Image=lscr.io/linuxserver/syncthing
 
+AutoUpdate=registry
+
 Volume=/var/opt/containers/syncthing:/config:Z
 Volume=/var/opt/obsidian:/ob-path:Z
 

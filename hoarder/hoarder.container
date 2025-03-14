@@ -7,7 +7,9 @@ After=local-fs.target
 [Container]
 ContainerName=hoarder
 
-Image=ghcr.io/hoarder-app/hoarder:0.18.0
+Image=ghcr.io/hoarder-app/hoarder:0.22.0
+
+AutoUpdate=registry
 
 EnvironmentFile=hoarder.env
 #Environment=NEXTAUTH_SECRET=SECRET

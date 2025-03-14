@@ -7,7 +7,9 @@ After=local-fs.target
 [Container]
 ContainerName=hoarder-meilisearch
 
-Image=docker.io/getmeili/meilisearch:v1.6
+Image=docker.io/getmeili/meilisearch:v1.11.1
+
+AutoUpdate=registry
 
 EnvironmentFile=hoarder.env
 #Environment=MEILI_MASTER_KEY=SECRET

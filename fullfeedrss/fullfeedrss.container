@@ -9,6 +9,8 @@ ContainerName=fullfeedrss
 
 Image=docker.io/heussd/fivefilters-full-text-rss:latest
 
+AutoUpdate=registry
+
 EnvironmentFile=fullfeedrss.env
 #Environment=FTR_ADMIN_PASSWORD=SECRET
 

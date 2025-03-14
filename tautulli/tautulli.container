@@ -9,6 +9,8 @@ ContainerName=tautulli
 
 Image=lscr.io/linuxserver/tautulli
 
+AutoUpdate=registry
+
 Volume=/var/opt/containers/tautulli/config:/config:Z
 Volume=/var/opt/containers/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro,z
 

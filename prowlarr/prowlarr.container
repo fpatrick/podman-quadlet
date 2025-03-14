@@ -9,6 +9,8 @@ ContainerName=prowlarr
 
 Image=ghcr.io/hotio/prowlarr
 
+AutoUpdate=registry
+
 Volume=/var/opt/containers/prowlarr:/config:Z
 Volume=/var/mnt/media:/data:z
 
