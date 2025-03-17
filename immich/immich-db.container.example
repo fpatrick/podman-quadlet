@@ -1,0 +1,29 @@
+[Unit]
+Description=Immich database
+
+[Container]
+ContainerName=immich-db
+
+Image=docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0
+
+Pod=immich.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=immich.env
+Environment=POSTGRES_PASSWORD=secret
+Environment=POSTGRES_USER=psecret
+Environment=POSTGRES_DB=secret
+Environment=POSTGRES_INITDB_ARGS='--data-checksums'
+
+Volume=/var/opt/containers/immich-db:/var/lib/postgresql/data:Z
+
+HealthCmd=pg_isready -d $POSTGRES_DB -U $POSTGRES_USER || exit 1; Chksum=$(psql -d $POSTGRES_DB -U $POSTGRES_USER --tuples-only --no-align --command='SELECT COALESCE(SUM(checksum_failures), 0) FROM pg_stat_database'); echo "checksum failure count is $Chksum"; [ $Chksum = 0 ] || exit 1
+Exec=postgres -c shared_preload_libraries='vectors.so' -c search_path='"$user", public, vectors' -c max_wal_size=2GB -c shared_buffers=512MB -c wal_compression=on
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
