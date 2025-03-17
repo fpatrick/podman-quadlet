@@ -1,0 +1,36 @@
+[Unit]
+Description=Media
+# Requires=immich-db.container redis.container
+# After=network-online.target immich-db.container redis.container
+
+[Container]
+ContainerName=immich-server
+
+# Remember to update immich-ml with same version
+Image=ghcr.io/immich-app/immich-server:v1.129.0
+
+Pod=immich.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=immich.env
+Environment=DB_HOSTNAME=immich-db
+Environment=REDIS_HOSTNAME=redis
+
+Volume=/var/mnt/data/media:/usr/src/app/upload:z
+# Volume=/etc/localtime:/etc/localtime:ro,z
+
+Label=homepage.group=Media
+Label=homepage.name=Immich
+Label=homepage.icon=immich.png
+Label=homepage.href=http://10.0.0.3:2283
+Label=homepage.description='Local Media'
+
+[Service]
+Restart=on-failure
+RestartSec=15
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
+

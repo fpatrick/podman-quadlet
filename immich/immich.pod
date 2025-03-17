@@ -1,0 +1,8 @@
+[Unit]
+Description=Media
+After=network-online.target
+
+[Pod]
+PodName=immich
+PublishPort=2283:2283
+# Network=immich.network

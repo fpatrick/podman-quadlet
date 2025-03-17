@@ -1,0 +1,26 @@
+[Unit]
+Description=Immich redis
+# Wants=network-online.target
+# After=network-online.target
+# After=local-fs.target
+
+[Container]
+ContainerName=redis
+
+Image=docker.io/redis:6.2-alpine
+
+Pod=immich.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=immich.env
+
+HealthCmd=redis-cli ping || exit 1
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
+

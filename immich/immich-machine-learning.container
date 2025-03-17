@@ -1,0 +1,27 @@
+[Unit]
+Description=Immich Machine Learning
+# Wants=network-online.target
+# After=network-online.target
+# After=local-fs.target
+
+[Container]
+ContainerName=immich-machine-learning
+
+# Remember to update immich with same version
+Image=ghcr.io/immich-app/immich-machine-learning:v1.129.0
+
+Pod=immich.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=immich.env
+
+Volume=/var/opt/containers/immich-ml:/cache:Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
+
