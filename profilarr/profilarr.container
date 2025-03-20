@@ -1,0 +1,32 @@
+[Unit]
+Description=Auto profiles for sonarr/radarr
+# Wants=network-online.target
+# After=network-online.target
+# After=local-fs.target
+
+[Container]
+ContainerName=profilarr
+
+Image=docker.io/santiagosayshey/profilarr:latest
+
+AutoUpdate=registry
+
+Volume=/var/opt/containers/profilarr:/config:Z
+
+Network=arr.network
+
+PublishPort=6868:6868
+
+Label=homepage.group=Misc.
+Label=homepage.name=Profilarr
+Label=homepage.icon=profilarr.png
+Label=homepage.href=http://10.0.0.3:6868
+Label=homepage.description="Media profiles for arrs"
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+# [Install]
+# WantedBy=default.target
+
