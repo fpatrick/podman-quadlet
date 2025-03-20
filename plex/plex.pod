@@ -1,0 +1,20 @@
+[Unit]
+Description=Plex Stack
+After=network-online.target
+
+[Pod]
+PodName=plex
+PublishPort=32400:32400/tcp
+PublishPort=1900:1900/udp
+PublishPort=3005:3005/tcp
+PublishPort=5353:5353/udp
+PublishPort=8324:8324/tcp
+PublishPort=32410:32410/udp
+PublishPort=32412:32412/udp
+PublishPort=32413:32413/udp
+PublishPort=32414:32414/udp
+PublishPort=32469:32469/tcp
+
+PublishPort=8181:8181
+
+Network=arr.network

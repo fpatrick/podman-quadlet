@@ -11,6 +11,8 @@ Image=docker.io/plexinc/pms-docker:plexpass
 
 AutoUpdate=registry
 
+Pod=plex.pod
+
 EnvironmentFile=plex.env
 #Environment=PLEX_CLAIM=SECRET
 Environment=PLEX_UID=500
@@ -28,19 +30,6 @@ Volume=/var/mnt/media/faneditshows:/fan-edit-tv:z
 Volume=/var/mnt/media/transcode:/transcode:z
 Volume=/var/mnt/media/music:/music:z
 
-Network=arr.network
-
-PublishPort=32400:32400/tcp
-PublishPort=1900:1900/udp
-PublishPort=3005:3005/tcp
-PublishPort=5353:5353/udp
-PublishPort=8324:8324/tcp
-PublishPort=32410:32410/udp
-PublishPort=32412:32412/udp
-PublishPort=32413:32413/udp
-PublishPort=32414:32414/udp
-PublishPort=32469:32469/tcp
-
 AddDevice=/dev/dri
 
 Label=homepage.group=Media
@@ -51,7 +40,7 @@ Label=homepage.description="Stream Media"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target

@@ -11,22 +11,20 @@ Image=lscr.io/linuxserver/tautulli
 
 AutoUpdate=registry
 
+Pod=plex.pod
+
 Volume=/var/opt/containers/tautulli/config:/config:Z
 Volume=/var/opt/containers/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro,z
-
-Network=arr.network
-
-PublishPort=8181:8181
 
 Label=homepage.group=Media
 Label=homepage.name=Tautulli
 Label=homepage.icon=tautulli.png
 Label=homepage.href=http://10.0.0.3:8181
-Label=homepage.description=Track Plex stats
+Label=homepage.description="Track Plex stats"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target
