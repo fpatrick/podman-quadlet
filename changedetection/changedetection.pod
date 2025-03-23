@@ -1,0 +1,7 @@
+[Unit]
+Description=Price
+After=network-online.target
+
+[Pod]
+PodName=changedetection
+PublishPort=5000:5000

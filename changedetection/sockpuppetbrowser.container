@@ -1,0 +1,24 @@
+[Unit]
+Description=Monitor prices
+
+[Container]
+ContainerName=sockpuppetbrowser
+
+Image=docker.io/dgtlmoon/sockpuppetbrowser:latest
+
+AutoUpdate=registry
+
+Pod=changedetection.pod
+
+Environment=SCREEN_WIDTH=1920
+Environment=SCREEN_HEIGHT=1024
+Environment=SCREEN_DEPTH=16
+Environment=MAX_CONCURRENT_CHROME_PROCESSES=10
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+# [Install]
+# WantedBy=default.target
+

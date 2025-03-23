@@ -1,0 +1,29 @@
+[Unit]
+Description=Monitor prices
+
+[Container]
+ContainerName=changedetection
+
+Image=ghcr.io/dgtlmoon/changedetection.io
+
+AutoUpdate=registry
+
+Pod=changedetection.pod
+
+Environment=PLAYWRIGHT_DRIVER_URL=ws://sockpuppetbrowser:3000
+
+Volume=/var/opt/containers/changedetection:/datastore:Z
+
+Label=homepage.group=Misc.
+Label=homepage.name="Change Detection"
+Label=homepage.icon=changedetection.png
+Label=homepage.href=http://10.0.0.3:5000
+Label=homepage.description="Monitor prices"
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+# [Install]
+# WantedBy=default.target
+
