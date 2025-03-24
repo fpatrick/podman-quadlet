@@ -35,6 +35,6 @@ PublishPort=29811-29816:29811-29816
 Restart=on-failure
 TimeoutStartSec=900
 
-[Install]
-WantedBy=default.target
+# [Install]
+# WantedBy=default.target
 
