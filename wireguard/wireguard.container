@@ -11,21 +11,24 @@ Image=lscr.io/linuxserver/wireguard
 
 AutoUpdate=registry
 
-Environment=SERVERPORT=51820
-Environment=PEERS=2
-Environment=PEERDNS=auto
+Environment=SERVERPORT=55127
+# Environment=PEERS=2
+# Environment=PEERDNS=auto
 
 Volume=/var/opt/containers/wireguard:/config:Z
 
 Network=wireguard.network
-PublishPort=51820:51820/udp
+PublishPort=55127:55127/udp
 
 AddCapability=NET_ADMIN NET_RAW
+
+Sysctl=net.ipv4.ip_forward=1
+Sysctl=net.ipv4.conf.all.src_valid_mark=1
 
 [Service]
 Restart=on-failure
 TimeoutStartSec=900
 
-[Install]
-WantedBy=default.target
+# [Install]
+# WantedBy=default.target
 
