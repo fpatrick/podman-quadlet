@@ -71,9 +71,11 @@ To automatically update your containers:
 1. Add the line `AutoUpdate=registry` in your `.container` file.
 2. Enable the Podman auto-update service:
    ```
-   systemctl --user enable podman-auto-update
+   systemctl enable --now podman-auto-update.timer
    ```
-   That will make podman periodically check for new images. If you want to manually check for updates run ``` podman auto-update ```
+   That will make podman periodically check for new images. If you want to run a check for updates run ``` podman auto-update ```
+
+   You can check if the timer is active with ``` systemctl list-timers | grep podman-auto-update ```
 
 ### Manual Updates 🔧
 
@@ -85,6 +87,8 @@ To automatically update your containers:
    ```
    systemctl --user restart myapp.service
    ```
+
+Another way is follow the Auto-update instructions, but don't activate the auto-update timer, instead run podman auto-update
 
 ## Example Templates
 
