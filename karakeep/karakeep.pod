@@ -1,0 +1,16 @@
+[Unit]
+Description=Bookmarker manager
+Wants=network-online.target
+After=network-online.target
+
+[Pod]
+PodName=karakeep
+PublishPort=3095:3000
+Network=karakeep.network
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target

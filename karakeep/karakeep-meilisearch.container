@@ -1,0 +1,18 @@
+[Unit]
+Description=Karakeep requirement
+
+[Container]
+ContainerName=karakeep-meilisearch
+
+Image=docker.io/getmeili/meilisearch:v1.11.1
+
+Pod=karakeep.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=karakeep.env
+#Environment=MEILI_MASTER_KEY=SECRET
+Environment=MEILI_NO_ANALYTICS=true
+
+Volume=/var/opt/containers/karakeep-meilisearch:/meili_data:Z
+

@@ -1,0 +1,29 @@
+[Unit]
+Description=Bookmark Manager
+
+[Container]
+ContainerName=karakeep
+
+Image=ghcr.io/karakeep-app/karakeep:0.23.2
+
+Pod=karakeep.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=karakeep.env
+#Environment=NEXTAUTH_SECRET=SECRET
+#Environment=MEILI_MASTER_KEY=SECRET
+Environment=MEILI_ADDR=http://karakeep-meilisearch:7700
+Environment=BROWSER_WEB_URL=http://karakeep-chrome:9222
+Environment=DATA_DIR=/data
+Environment=NEXTAUTH_URL=http://10.0.0.3:3095
+#Environment=OPENAI_API_KEY=
+
+Volume=/var/opt/containers/karakeep:/data:Z
+
+Label=homepage.group=Misc.
+Label=homepage.name=Karakeep
+Label=homepage.icon=karakeep.png
+Label=homepage.href=http://10.0.0.3:3095
+Label=homepage.description="Bookmark Manager"
+
