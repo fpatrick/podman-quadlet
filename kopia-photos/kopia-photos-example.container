@@ -1,0 +1,41 @@
+[Unit]
+Description=Backup of photos
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=kopia-photos
+
+Image=docker.io/kopia/kopia:0.19
+
+AutoUpdate=registry
+
+EnvironmentFile=kopia-photos.env
+
+Volume=/kopia-photos/config/:/app/config:Z
+Volume=/kopia-photos/cache/:/app/cache:Z
+Volume=/kopia-photos/logs/:/app/logs:Z
+Volume=/PATH/TO/RCLONE:/app/rclone:ro
+Volume=/PATH/TO/BACKUP:/BACKUPFOLDER:ro
+
+
+PublishPort=YOURPORT:51515
+
+Exec=server start --disable-csrf-token-checks --insecure --address=0.0.0.0:PORT --server-username=USERNAME--server-password=PASSWORD
+
+SecurityLabelDisable=true
+
+Label=homepage.group=Automation
+Label=homepage.name=Kopia-Photos
+Label=homepage.icon=kopia.png
+Label=homepage.href=http://IP:PORT
+Label=homepage.description="Backup of photos"
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
+
