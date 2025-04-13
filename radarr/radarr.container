@@ -15,9 +15,9 @@ Environment=PUID=500
 Environment=PGID=500
 
 Volume=/var/opt/containers/radarr:/config:Z
-Volume=/var/mnt/data/usenet:/data/usenet:z
-Volume=/var/mnt/data/movies:/data/movies:z
-Volume=/var/mnt/data/kidsmovies:/data/kidsmovies:z
+Volume=/var/mnt/data/usenet:/data/usenet
+Volume=/var/mnt/data/movies:/data/movies
+Volume=/var/mnt/data/kidsmovies:/data/kidsmovies
 
 
 Network=arr.network
@@ -32,7 +32,7 @@ Label=homepage.description="Automate Movies"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target

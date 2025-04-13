@@ -15,7 +15,10 @@ Environment=PUID=500
 Environment=PGID=500
 
 Volume=/var/opt/containers/sonarr:/config:Z
-Volume=/var/mnt/media:/data:z
+Volume=/var/mnt/media/tvshows:/data/tvshows
+Volume=/var/mnt/media/kidstv:/data/kidstv
+Volume=/var/mnt/media/sabnzbd/tv:/data/sabnzbd/tv
+
 
 Network=arr.network
 
@@ -25,11 +28,11 @@ Label=homepage.group=Media
 Label=homepage.name=Sonarr
 Label=homepage.icon=sonarr.png
 Label=homepage.href=http://10.0.0.3:8989
-Label=homepage.description=Automate TV shows
+Label=homepage.description="Automate TV shows"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target
