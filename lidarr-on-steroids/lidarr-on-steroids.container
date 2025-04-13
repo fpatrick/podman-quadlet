@@ -29,8 +29,8 @@ Label=homepage.description="Songs (Deemix on 6595)"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
-[Install]
-WantedBy=default.target
+#[Install]
+#WantedBy=default.target
 
