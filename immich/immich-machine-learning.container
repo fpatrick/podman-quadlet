@@ -8,7 +8,7 @@ Description=Immich Machine Learning
 ContainerName=immich-machine-learning
 
 # Remember to update immich with same version
-Image=ghcr.io/immich-app/immich-machine-learning:v1.129.0
+Image=ghcr.io/immich-app/immich-machine-learning:v1.130.3
 
 Pod=immich.pod
 

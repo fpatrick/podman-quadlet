@@ -7,7 +7,7 @@ Description=Media
 ContainerName=immich-server
 
 # Remember to update immich-ml with same version
-Image=ghcr.io/immich-app/immich-server:v1.129.0
+Image=ghcr.io/immich-app/immich-server:v1.130.3
 
 Pod=immich.pod
 
@@ -17,7 +17,7 @@ EnvironmentFile=immich.env
 Environment=DB_HOSTNAME=immich-db
 Environment=REDIS_HOSTNAME=redis
 
-Volume=/var/mnt/data/media:/usr/src/app/upload:z
+Volume=/var/mnt/photos/immich:/usr/src/app/upload:z
 # Volume=/etc/localtime:/etc/localtime:ro,z
 
 Label=homepage.group=Media
