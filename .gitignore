@@ -5,4 +5,4 @@ kopia-photos/kopia-photos.container
 sabnzbd/*
 nzbget/*
 immich/immich-db.container
-wg-easy/*
+wg-easy/wg-easy.container
