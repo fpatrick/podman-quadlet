@@ -1,6 +1,7 @@
 **/*.env
 **/*.network
-kopia/*
+kopia/kopia.container
+kopia-photos/kopia-photos.container
 sabnzbd/*
 nzbget/*
 immich/immich-db.container
