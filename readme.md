@@ -2,7 +2,7 @@ Check out my blog for guides on podman, fedora core os, SELinux in containers an
 
 # Podman with Quadlet - Getting Started Guide
 
-This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` . 🚀
+This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` .
 
 **Did you know? You can use Cockpit or Portainer with podman**
 
