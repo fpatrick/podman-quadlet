@@ -13,6 +13,7 @@ AutoUpdate=registry
 
 Volume=/var/opt/containers/syncthing:/config:Z
 Volume=/var/opt/obsidian:/ob-path:Z
+Volume=/var/opt/syncstuff:/stuff
 
 PublishPort=8384:8384
 PublishPort=22000:22000/tcp
@@ -31,7 +32,7 @@ Label=homepage.description=File synchronization tool
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target
