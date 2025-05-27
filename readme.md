@@ -1,6 +1,6 @@
 Check out my blog for guides on podman, fedora core os, SELinux in containers and more: https://blog.nerdon.eu/tag/containers-virtualization/
 
-# Podman with Quadlet - Getting Started Guide 🐋
+# Podman with Quadlet - Getting Started Guide
 
 This guide will help you get started with **Podman** and **Quadlet** in a simple, non-technical way. Scroll down for TEMPLATES for `.container`, `.network` and `.env` . 🚀
 
@@ -16,7 +16,7 @@ Rootless means you don't need admin (root) permissions to run containers. If som
 
 ### Step-by-Step Guide
 
-1. **Set up the directories** 📂:
+1. **Set up the directories**:
    ```
    mkdir -p ~/.config/containers/systemd/
    ```
@@ -28,23 +28,23 @@ Rootless means you don't need admin (root) permissions to run containers. If som
    ```
    This is where you define your container. Example template below.
 
-3. **Reload systemd** 🔄:
+3. **Reload systemd**:
    ```
    systemctl --user daemon-reload
    ```
 
-4. **Prepare persistent storage** 🗂️ (important):
+4. **Prepare persistent storage** (important):
    Before starting the container, create the directories for persistent storage.
    ```
    mkdir -p /path/to/storage/containerfolder
    ```
 
-5. **Start the container** ▶️:
+5. **Start the container**:
    ```
    systemctl --user start myapp.service
    ```
 
-6. **Troubleshooting** ❗:
+6. **Troubleshooting**:
    If something goes wrong, you can try to use this command to check logs:
    ```
    journalctl --user -u myapp.service --no-pager -n 50
@@ -54,8 +54,8 @@ Rootless means you don't need admin (root) permissions to run containers. If som
 
 In rootful mode, you need admin (root) permissions.
 
-1. **Use sudo** 🛑: Prefix every command with `sudo`.
-2. **Change directory for container files** 📁: Put your `.container` files in `/etc/containers/systemd/`.
+1. **Use sudo**: Prefix every command with `sudo`.
+2. **Change directory for container files**: Put your `.container` files in `/etc/containers/systemd/`.
 3. **Run commands**:
    - Same as rootless, but **without** the `--user` flag:
      ```
@@ -64,7 +64,7 @@ In rootful mode, you need admin (root) permissions.
 
 ## Updates
 
-### Auto-updating Containers 🔄
+### Auto-updating Containers
 
 To automatically update your containers:
 
@@ -77,7 +77,7 @@ To automatically update your containers:
 
    You can check if the timer is active with ``` systemctl list-timers | grep podman-auto-update ```
 
-### Manual Updates 🔧
+### Manual Updates
 
 1. Pull the latest image:
    ```
@@ -174,4 +174,4 @@ ENVIROMENT_FIELD=your_secret_value # Add your custom variables here. Such as PGI
 
 ---
 
-That's it! You're ready to manage containers with Quadlet. 😊
+That's it! You're ready to manage containers with Quadlet.
