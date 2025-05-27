@@ -9,10 +9,12 @@ ContainerName=lidarr-on-steroids
 
 Image=docker.io/youegraillot/lidarr-on-steroids:latest
 
+AutoUpdate=registry
+
 Volume=/var/opt/containers/lidarr/config:/config:Z
 Volume=/var/opt/containers/lidarr/config_deemix:/config_deemix:Z
-Volume=/var/mnt/media/sabnzbd/tv:/data/sabnzbd/tv:z
-Volume=/var/mnt/media/music:/music:z
+Volume=/var/mnt/media/sabnzbd/tv:/data/sabnzbd/tv
+Volume=/var/mnt/media/music:/music
 
 # Lidarr web UI
 PublishPort=8686:8686 
