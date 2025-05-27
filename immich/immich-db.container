@@ -1,0 +1,23 @@
+[Unit]
+Description=Immich database
+
+[Container]
+ContainerName=immich-db
+
+Image=ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+
+Pod=immich.pod
+
+AutoUpdate=registry
+
+EnvironmentFile=immich.env
+Environment=POSTGRES_INITDB_ARGS='--data-checksums'
+
+Volume=/var/opt/containers/immich-db:/var/lib/postgresql/data:Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target

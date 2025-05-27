@@ -7,7 +7,7 @@ Description=Media
 ContainerName=immich-server
 
 # Remember to update immich-ml with same version
-Image=ghcr.io/immich-app/immich-server:v1.130.3
+Image=ghcr.io/immich-app/immich-server:v1.133.1
 
 Pod=immich.pod
 
