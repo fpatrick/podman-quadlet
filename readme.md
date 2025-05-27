@@ -22,7 +22,7 @@ Rootless means you don't need admin (root) permissions to run containers. If som
    ```
    Later, put your `.container`, `.network`, and `.env` files in this directory.
 
-2. **Create or modify a .container file** 🛠️:
+2. **Create or modify a .container file**:
    ```
    nano ~/.config/containers/systemd/myapp.container
    ```
