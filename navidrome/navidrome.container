@@ -1,0 +1,31 @@
+[Unit]
+Description=Music manager
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=navidrome
+
+Image=docker.io/deluan/navidrome:latest
+
+AutoUpdate=registry
+
+Volume=/var/opt/containers/navidrome:/data:Z
+Volume=/var/mnt/media/music:/music:ro
+
+#Network=navidrome.network
+
+PublishPort=4533:4533
+
+Label=homepage.group=Media
+Label=homepage.name=Navidrome
+Label=homepage.icon=navidrome.png
+Label=homepage.href=http://10.0.0.3:4533
+Label=homepage.description="Manage Music"
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+
