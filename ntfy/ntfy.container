@@ -1,0 +1,53 @@
+[Unit]
+Description=Notifications
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Container]
+ContainerName=ntfy
+
+Image=docker.io/binwiederhier/ntfy:v2.11.0
+
+AutoUpdate=registry
+
+Environment=TZ=Europe/Dublin
+Environment=NTFY_BASE_URL=https://ntfy.nerdon.eu
+Environment=NTFY_CACHE_FILE=/var/lib/ntfy/cache.db
+Environment=NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
+Environment=NTFY_AUTH_DEFAULT_ACCESS=deny-all
+Environment=NTFY_BEHIND_PROXY=true
+Environment=NTFY_ATTACHMENT_CACHE_DIR=/var/lib/ntfy/attachments
+Environment=NTFY_ENABLE_LOGIN=true
+# For ios
+Environment=NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+# Webgui
+#Environment=NTFY_WEB_ROOT=disable
+
+Volume=/var/opt/containers/ntfy:/var/lib/ntfy
+
+Network=ntfy.network
+
+PublishPort=8289:80
+
+Exec=serve
+
+HealthCmd=wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '"healthy"\s*:\s*true' || exit 1
+HealthInterval=30s
+HealthTimeout=10s
+HealthStartPeriod=5s
+HealthRetries=3
+
+Label=homepage.group=RSS/Feed
+Label=homepage.name=ntfy
+Label=homepage.icon=ntfy.png
+Label=homepage.href=http://10.0.0.3:8289
+Label=homepage.description="Notification feed"
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+
+[Install]
+WantedBy=default.target
+
