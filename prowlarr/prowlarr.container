@@ -18,15 +18,15 @@ Network=arr.network
 
 PublishPort=9696:9696
 
-Label=homepage.group=Media
+Label=homepage.group=Download
 Label=homepage.name=Prowlarr
 Label=homepage.icon=prowlarr.png
 Label=homepage.href=http://10.0.0.3:9696
-Label=homepage.description=Manage indexers
+Label=homepage.description="Manage indexers"
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=900
+TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target
