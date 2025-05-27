@@ -1,0 +1,18 @@
+[Unit]
+Description=Searxng redis
+
+[Container]
+ContainerName=redis-searxng
+
+Image=docker.io/valkey/valkey:8-alpine
+
+AutoUpdate=registry
+
+Pod=searxng.pod
+
+Exec=valkey-server --save 30 1 --loglevel warning
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=90
+

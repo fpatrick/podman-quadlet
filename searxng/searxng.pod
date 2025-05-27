@@ -1,0 +1,13 @@
+[Unit]
+Description=Search stack
+Wants=network-online.target
+After=network-online.target
+After=local-fs.target
+
+[Pod]
+PodName=searxng
+PublishPort=3344:8080
+Network=searxng.network
+
+[Install]
+WantedBy=default.target
