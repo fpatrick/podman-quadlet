@@ -23,7 +23,7 @@ Volume=/var/opt/containers/karakeep:/data:Z
 
 Label=homepage.group=Misc.
 Label=homepage.name=Karakeep
-Label=homepage.icon=karakeep.png
+Label=homepage.icon=hoarder.png
 Label=homepage.href=http://10.0.0.3:3095
 Label=homepage.description="Bookmark Manager"
 
