@@ -7,7 +7,7 @@ Description=Media
 ContainerName=immich-server
 
 # Remember to update immich-ml with same version
-Image=ghcr.io/immich-app/immich-server:v1.133.1
+Image=ghcr.io/immich-app/immich-server:v2.5.2
 
 Pod=immich.pod
 
@@ -33,4 +33,3 @@ TimeoutStartSec=90
 
 [Install]
 WantedBy=default.target
-
